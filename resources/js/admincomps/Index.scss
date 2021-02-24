@@ -1,0 +1,48 @@
+@import 'primereact/resources/themes/saga-blue/theme.css';
+@import 'primereact/resources/primereact.min.css';
+@import 'primeicons/primeicons.css';
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif, 'Nanum Gothic', sans-serif;
+}
+
+.index {
+
+    .sidebar {
+        position: fixed;
+        width: 15%;
+        padding: 2rem;
+        min-height: 100%;
+        background-color: #004385;
+        color: white;
+
+        .radiofield {
+            margin-bottom: 0.5rem;
+
+            label {
+                margin-left: 0.5rem;
+                font-size: 13px;
+            }
+        }
+    }
+
+    .comps {
+        width: 85%;
+        margin-left: 15%;
+        padding: 0 4rem;
+
+        .blocker {
+            border-top: 1px solid lightgray;
+            position: sticky;
+            bottom: 0;
+            width: 100%;
+            height: 2rem;
+            background-color: white;
+        }
+    }
+}

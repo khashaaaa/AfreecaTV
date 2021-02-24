@@ -1,0 +1,106 @@
+.settings {
+    padding: 2rem 0;
+
+    .createnotif {
+        position: sticky;
+        padding: 1rem 0;
+        background-color: white;
+        top: 0;
+        z-index: 10;
+
+        h4 {
+            width: 10rem;
+        }
+    
+        .scope {
+            margin-bottom: 0.5rem;
+            display: flex;
+            border: 1px solid #D0D0D0;
+            padding: 0.5rem 1rem;
+            align-items: center;
+            font-size: 12px;
+    
+            .checkboxes {
+                width: 8rem;
+    
+                label {
+                    margin-left: 1rem;
+                }
+            }
+        }
+    
+        .stock {
+            margin-bottom: 0.5rem;
+            display: flex;
+            border: 1px solid #D0D0D0;
+            padding: 0.5rem 1rem;
+            align-items: center;
+            font-size: 12px;
+    
+            .checkboxes {
+                width: 8rem;
+    
+                label {
+                    margin-left: 1rem;
+                }
+            }
+        }
+    
+        .changepercent {
+            margin-bottom: 0.5rem;
+            display: flex;
+            border: 1px solid #D0D0D0;
+            padding: 0.5rem 1rem;
+            align-items: center;
+            font-size: 12px;
+        }
+    
+        .changeperiod {
+            margin-bottom: 0.5rem;
+            display: flex;
+            border: 1px solid #D0D0D0;
+            padding: 0.5rem 1rem;
+            align-items: center;
+            font-size: 12px;
+        }
+    
+        .desc {
+            margin-bottom: 0.5rem;
+            display: flex;
+            border: 1px solid #D0D0D0;
+            padding: 0.5rem 1rem;
+            align-items: center;
+            font-size: 12px;
+        }
+
+        .submit {
+            display: flex;
+            justify-content: flex-end;
+
+            button {
+                font-size: 12px;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .confignotifs {
+
+        table {
+            border: 1px solid #D0D0D0;
+            border-collapse: collapse;
+            width: 100%;
+            font-size: 13px;
+
+            th, td {
+                border: 1px solid #D0D0D0;
+                border-collapse: collapse;
+                padding: 0 5px;
+            }
+
+            td:not(.descr) {
+                text-align: center;
+            }
+        }
+    }
+}
