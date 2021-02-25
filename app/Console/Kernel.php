@@ -28,7 +28,7 @@ class Kernel extends ConsoleKernel
         // Setup to run command in specific interval
         $schedule->command('record:stock')->everyThirtyMinutes();
         // This command should only run in the server
-        $schedule->command('purge:stocks')->daily([0, 4])->withoutOverlapping();
+        $schedule->command('purge:stocks')->daily([0, 5])->withoutOverlapping();
     }
 
     /**

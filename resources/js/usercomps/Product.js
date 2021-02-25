@@ -106,7 +106,7 @@ const Product = ({ setProd, graphdata }) => {
                                     margin={{ top: 30, right: 30, bottom: 30 }}
                                 >
                                     <CartesianGrid strokeDasharray="3 3" vertical={false} />
-                                    <XAxis style={{ fontSize: 10, fontWeight: 'bold' }} dataKey="date" />
+                                    <XAxis style={{ fontSize: 10, fontWeight: 'bold' }} dataKey="date" domain={['dataMin', 'dataMax']} />
                                     <YAxis style={{ fontSize: 10, fontWeight: 'bold' }} />
                                     <Tooltip contentStyle={{ fontSize: 12, fontWeight: 'bold' }} />
                                     <Line syncId="1" type="monotone" dataKey="avgbuy" stroke="red" activeDot={{ r: 5 }} />
