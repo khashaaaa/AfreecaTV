@@ -54,8 +54,8 @@ function Datasheets() {
                                         <tr key={num}>
                                             <td>{data.buyrate}%</td>
                                             <td>{data.sellrate}%</td>
-                                            <td>{data.avgbuy}</td>
-                                            <td>{data.avgsell}</td>
+                                            <td>{(Math.round(data.avgbuy * 100) / 100).toFixed(1)}</td>
+                                            <td>{(Math.round(data.avgsell * 100) / 100).toFixed(1)}</td>
                                             <td>{data.date}</td>
                                         </tr>
                                     )
@@ -72,8 +72,8 @@ function Datasheets() {
                                         <tr key={num}>
                                             <td>{data.buyrate}%</td>
                                             <td>{data.sellrate}%</td>
-                                            <td>{data.avgbuy}</td>
-                                            <td>{data.avgsell}</td>
+                                            <td>{(Math.round(data.avgbuy * 100) / 100).toFixed(5)}</td>
+                                            <td>{(Math.round(data.avgsell * 100) / 100).toFixed(5)}</td>
                                             <td>{data.date}</td>
                                         </tr>
                                     )
@@ -90,8 +90,8 @@ function Datasheets() {
                                         <tr key={num}>
                                             <td>{data.buyrate}%</td>
                                             <td>{data.sellrate}%</td>
-                                            <td>{data.avgbuy}</td>
-                                            <td>{data.avgsell}</td>
+                                            <td>{(Math.round(data.avgbuy * 100) / 100).toFixed(3)}</td>
+                                            <td>{(Math.round(data.avgsell * 100) / 100).toFixed(3)}</td>
                                             <td>{data.date}</td>
                                         </tr>
                                     )
@@ -108,8 +108,8 @@ function Datasheets() {
                                         <tr key={num}>
                                             <td>{data.buyrate}%</td>
                                             <td>{data.sellrate}%</td>
-                                            <td>{data.avgbuy}</td>
-                                            <td>{data.avgsell}</td>
+                                            <td>{(Math.round(data.avgbuy * 100) / 100).toFixed(2)}</td>
+                                            <td>{(Math.round(data.avgsell * 100) / 100).toFixed(2)}</td>
                                             <td>{data.date}</td>
                                         </tr>
                                     )
@@ -126,8 +126,8 @@ function Datasheets() {
                                         <tr key={num}>
                                             <td>{data.buyrate}%</td>
                                             <td>{data.sellrate}%</td>
-                                            <td>{data.avgbuy}</td>
-                                            <td>{data.avgsell}</td>
+                                            <td>{(Math.round(data.avgbuy * 100) / 100).toFixed(1)}</td>
+                                            <td>{(Math.round(data.avgsell * 100) / 100).toFixed(1)}</td>
                                             <td>{data.date}</td>
                                         </tr>
                                     )
@@ -144,8 +144,8 @@ function Datasheets() {
                                         <tr key={num}>
                                             <td>{data.buyrate}%</td>
                                             <td>{data.sellrate}%</td>
-                                            <td>{data.avgbuy}</td>
-                                            <td>{data.avgsell}</td>
+                                            <td>{(Math.round(data.avgbuy * 100) / 100).toFixed(2)}</td>
+                                            <td>{(Math.round(data.avgsell * 100) / 100).toFixed(2)}</td>
                                             <td>{data.date}</td>
                                         </tr>
                                     )

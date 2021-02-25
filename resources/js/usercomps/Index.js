@@ -70,6 +70,40 @@ const Landing = () => {
             }
         }
 
+        const BuyDigits = () => {
+            switch(stock[0]['name']) {
+                case 'Corn':
+                    return (Math.round(stock[0]['avgbuy'] * 100) / 100).toFixed(1)
+                case 'Euro FX':
+                    return (Math.round(stock[0]['avgbuy'] * 100) / 100).toFixed(5)
+                case 'Natural Gas':
+                    return (Math.round(stock[0]['avgbuy'] * 100) / 100).toFixed(3)
+                case 'Crude Oil (WTI)':
+                    return (Math.round(stock[0]['avgbuy'] * 100) / 100).toFixed(2)
+                case 'Gold':
+                    return (Math.round(stock[0]['avgbuy'] * 100) / 100).toFixed(1)
+                case 'E-mini NASDAQ 100':
+                    return (Math.round(stock[0]['avgbuy'] * 100) / 100).toFixed(2)
+            }
+        }
+
+        const SellDigits = () => {
+            switch(stock[0]['name']) {
+                case 'Corn':
+                    return (Math.round(stock[0]['avgsell'] * 100) / 100).toFixed(1)
+                case 'Euro FX':
+                    return (Math.round(stock[0]['avgsell'] * 100) / 100).toFixed(5)
+                case 'Natural Gas':
+                    return (Math.round(stock[0]['avgsell'] * 100) / 100).toFixed(3)
+                case 'Crude Oil (WTI)':
+                    return (Math.round(stock[0]['avgsell'] * 100) / 100).toFixed(2)
+                case 'Gold':
+                    return (Math.round(stock[0]['avgsell'] * 100) / 100).toFixed(1)
+                case 'E-mini NASDAQ 100':
+                    return (Math.round(stock[0]['avgsell'] * 100) / 100).toFixed(2)
+            }
+        }
+
         return (
             <li onClick={() => {setProd(true), ShowGraph(stock[0])}}>
 
@@ -104,11 +138,11 @@ const Landing = () => {
                     <div className="price">
                         <p>
                             <span>매도 평균가</span>
-                            <strong className="selling">{Number(stock[0]['avgsell']).toLocaleString()}</strong>
+                            <strong className="selling">{BuyDigits()}</strong>
                         </p>
                         <p>
                             <span>매수 평균가</span>
-                            <strong className="buying">{Number(stock[0]['avgbuy']).toLocaleString()}</strong>
+                            <strong className="buying">{SellDigits()}</strong>
                         </p>
                     </div>
                 </div>

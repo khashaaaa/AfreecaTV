@@ -54,7 +54,7 @@ function History() {
 
                 <div className="info">
                     <Calendar 
-                        style={{ width: '14rem' }} 
+                        style={{ width: '25rem' }} 
                         id="range" 
                         value={range} onChange={(e) => ChooseRange(e.value)} 
                         dateFormat="yy-mm-dd"
@@ -90,6 +90,9 @@ function History() {
                         {
                             notifs.map((ntf, num) => {
 
+                                const first = moment(range[0]).format("YYYY-MM-DD")
+                                const second = moment(range[1]).format("YYYY-MM-DD")
+
                                 let buyrate, sellrate
                                 let insertdate = moment(ntf.date).format("YYYY-MM-DD H:mm")
                                 let latestdate = moment(insertdate).add(ntf.changebyperiod, 'minutes').format("YYYY-MM-DD H:mm")
@@ -123,11 +126,7 @@ function History() {
                                     default: null
                                 }
 
-                                const first = moment(range[0]).format("YYYY-MM-DD")
-                                const second = moment(range[1]).format("YYYY-MM-DD")
-
                                 let changes = ntf["sellrate"] - sellrate
-                                let word
 
                                 if(!range[0]) {
 
@@ -142,8 +141,8 @@ function History() {
                                                 <p>알림발생: {ntf.changebypercent}% 변동</p>
                                                 <p>주기: {ntf.changebyperiod}분 대비</p>
                                                 {
-                                                    latestdate <= currentdate && changes !== 0 ?
-                                                    <p>결과: <span className="changes">{parseInt(changes)}% {changes < 0 ? '감소': '증가'}</span> (이전: {ntf["buyrate"]}% {ntf["sellrate"]}% 현재: {buyrate}% {sellrate}%)</p>
+                                                    latestdate <= currentdate && changes !== 0 && changes >= ntf.changebypercent ?
+                                                    <p>결과: <span className="changes">{parseInt(changes)}% 증가</span> (이전: {ntf["buyrate"]}% {ntf["sellrate"]}% 현재: {buyrate}% {sellrate}%)</p>
                                                     :
                                                     <p>결과: 곧 알림이 제공됩니다.</p>
                                                 }
@@ -164,8 +163,8 @@ function History() {
                                                 <p>알림발생: {ntf.changebypercent}% 변동</p>
                                                 <p>주기: {ntf.changebyperiod}분 대비</p>
                                                 {
-                                                    latestdate <= currentdate && changes !== 0 ?
-                                                    <p>결과: <span className="changes">{parseInt(changes)}% {changes < 0 ? '감소': '증가'}</span> (이전: {ntf["buyrate"]}% {ntf["sellrate"]}% 현재: {buyrate}% {sellrate}%)</p>
+                                                    latestdate <= currentdate && changes !== 0 && changes >= ntf.changebypercent ?
+                                                    <p>결과: <span className="changes">{parseInt(changes)}% 증가</span> (이전: {ntf["buyrate"]}% {ntf["sellrate"]}% 현재: {buyrate}% {sellrate}%)</p>
                                                     :
                                                     <p>결과: 곧 알림이 제공됩니다.</p>
                                                 }

@@ -47,8 +47,14 @@ a {
 
         table {
             width: 100%;
+            table-layout: auto;
+
+            .date {
+                width: 30%;
+            }
 
             .infos {
+                width: 70%;
 
                 p {
                     padding: 0.3rem 0;

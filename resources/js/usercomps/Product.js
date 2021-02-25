@@ -67,6 +67,23 @@ const Product = ({ setProd, graphdata }) => {
 
     const toPercent = (decimal, fixed = 0) => `${(decimal * 100)}%`;
 
+    const DigitFormat = ( name, value ) => {
+        switch(graphdata['name']) {
+            case 'Corn':
+                return (Math.round(name * 100) / 100).toFixed(1)
+            case 'Euro FX':
+                return (Math.round(name * 100) / 100).toFixed(5)
+            case 'Natural Gas':
+                return (Math.round(name * 100) / 100).toFixed(3)
+            case 'Crude Oil (WTI)':
+                return (Math.round(name * 100) / 100).toFixed(2)
+            case 'Gold':
+                return (Math.round(name * 100) / 100).toFixed(1)
+            case 'E-mini NASDAQ 100':
+                return (Math.round(name * 100) / 100).toFixed(2)
+        }
+    }
+
     return (
         <div className="dim flex_box on">
             <div className="layer_popup product_popup">
@@ -108,7 +125,7 @@ const Product = ({ setProd, graphdata }) => {
                                     <CartesianGrid strokeDasharray="3 3" vertical={false} />
                                     <XAxis style={{ fontSize: 10, fontWeight: 'bold' }} dataKey="date" domain={['dataMin', 'dataMax']} />
                                     <YAxis style={{ fontSize: 10, fontWeight: 'bold' }} />
-                                    <Tooltip contentStyle={{ fontSize: 12, fontWeight: 'bold' }} />
+                                    <Tooltip contentStyle={{ fontSize: 12, fontWeight: 'bold' }} formatter={(name, value) => { return DigitFormat(name, value) }} />
                                     <Line syncId="1" type="monotone" dataKey="avgbuy" stroke="red" activeDot={{ r: 5 }} />
                                     <Line syncId="2" type="monotone" dataKey="avgsell" stroke="blue" activeDot={{ r: 5 }} />
                                 </LineChart>

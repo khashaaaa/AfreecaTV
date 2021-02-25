@@ -214,15 +214,15 @@ function Settings() {
 
     return (
         <div className="settings">
-            <div className="head">
-                <h3>채팅방 알림 히스토리</h3>
-            </div>
             {/* A message */}
             <Toast ref={createdtoast} position="top-center" />
             {/* A message */}
 
             {/* Form for create new notification */}
             <form onSubmit={CreateNotif} className="createnotif">
+                <div className="head">
+                    <h3>채팅방 알림 히스토리</h3>
+                </div>
                 <div className="scope">
                     <h4>대상</h4>
 
@@ -316,7 +316,7 @@ function Settings() {
                             notifs.map((ntf, num) => {
                                 return (
                                     <tr key={num}>
-                                        <td>{ntf.id}</td>
+                                        <td >{ntf.id}</td>
                                         <td className="edit">
                                             {
                                                 Checked(ntf)
