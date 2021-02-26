@@ -67,20 +67,37 @@ const Product = ({ setProd, graphdata }) => {
 
     const toPercent = (decimal, fixed = 0) => `${(decimal * 100)}%`;
 
-    const DigitFormat = ( name, value ) => {
+    const DigitFormatArea = ( name, value ) => {
         switch(graphdata['name']) {
             case 'Corn':
-                return (Math.round(name * 100) / 100).toFixed(1)
+                return [name]
             case 'Euro FX':
-                return (Math.round(name * 100) / 100).toFixed(5)
+                return [name]
             case 'Natural Gas':
-                return (Math.round(name * 100) / 100).toFixed(3)
+                return [name]
             case 'Crude Oil (WTI)':
-                return (Math.round(name * 100) / 100).toFixed(2)
+                return [name]
             case 'Gold':
-                return (Math.round(name * 100) / 100).toFixed(1)
+                return [name]
             case 'E-mini NASDAQ 100':
-                return (Math.round(name * 100) / 100).toFixed(2)
+                return [name]
+        }
+    }
+
+    const DigitFormatLine = ( name, value ) => {
+        switch(graphdata['name']) {
+            case 'Corn':
+                return [(Math.round(name * 100) / 100).toFixed(1)]
+            case 'Euro FX':
+                return [(Math.round(name * 100) / 100).toFixed(5)]
+            case 'Natural Gas':
+                return [(Math.round(name * 100) / 100).toFixed(3)]
+            case 'Crude Oil (WTI)':
+                return [(Math.round(name * 100) / 100).toFixed(2)]
+            case 'Gold':
+                return [(Math.round(name * 100) / 100).toFixed(1)]
+            case 'E-mini NASDAQ 100':
+                return [(Math.round(name * 100) / 100).toFixed(2)]
         }
     }
 
@@ -104,7 +121,7 @@ const Product = ({ setProd, graphdata }) => {
                                     <CartesianGrid strokeDasharray="3 3" vertical={false} />
                                     <XAxis style={{ fontSize: 10, fontWeight: 'bold' }} dataKey="date" />
                                     <YAxis style={{ fontSize: 10, fontWeight: 'bold' }} tickFormatter={toPercent} domain={[ 'dataMin', 'dataMax' ]} />
-                                    <Tooltip contentStyle={{ fontSize: 12, fontWeight: 'bold' }} />
+                                    <Tooltip contentStyle={{ fontSize: 12, fontWeight: 'bold' }} formatter={(name, value) => {return DigitFormatArea(name, value)}} />
                                     <Area type="monotone" dataKey="buyrate" stackId="1" stroke="red" fill="red" activeDot={{ r: 3 }} />
                                     <Area type="monotone" dataKey="sellrate" stackId="1" stroke="blue" fill="blue" activeDot={{ r: 3 }} />
                                 </AreaChart>
@@ -114,7 +131,7 @@ const Product = ({ setProd, graphdata }) => {
 
                     <div className="box selling_box">
                         <div className="title">
-                            <em>매도 평균가</em>
+                            <em>매수 VS 매도 평균가</em>
                         </div>
                         <div className="graph">
                             <ResponsiveContainer width="100%" height={200}>
@@ -125,7 +142,7 @@ const Product = ({ setProd, graphdata }) => {
                                     <CartesianGrid strokeDasharray="3 3" vertical={false} />
                                     <XAxis style={{ fontSize: 10, fontWeight: 'bold' }} dataKey="date" domain={['dataMin', 'dataMax']} />
                                     <YAxis style={{ fontSize: 10, fontWeight: 'bold' }} />
-                                    <Tooltip contentStyle={{ fontSize: 12, fontWeight: 'bold' }} formatter={(name, value) => { return DigitFormat(name, value) }} />
+                                    <Tooltip contentStyle={{ fontSize: 12, fontWeight: 'bold' }} formatter={(name, value) => { return DigitFormatLine(name, value) }} />
                                     <Line syncId="1" type="monotone" dataKey="avgbuy" stroke="red" activeDot={{ r: 5 }} />
                                     <Line syncId="2" type="monotone" dataKey="avgsell" stroke="blue" activeDot={{ r: 5 }} />
                                 </LineChart>
