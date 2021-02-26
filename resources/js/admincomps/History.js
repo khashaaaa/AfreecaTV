@@ -142,7 +142,7 @@ function History() {
                                                 <p>주기: {ntf.changebyperiod}분 대비</p>
                                                 {
                                                     latestdate <= currentdate && changes !== 0 && changes >= ntf.changebypercent ?
-                                                    <p>결과: <span className="changes">{parseInt(changes)}% 증가</span> (이전: {ntf["buyrate"]}% {ntf["sellrate"]}% 현재: {buyrate}% {sellrate}%)</p>
+                                                    <p>결과: <span className="changes">{parseInt(changes)}% {changes > 0 ? '증가' : '감소'}</span> (이전: {ntf["buyrate"]}% {ntf["sellrate"]}% 현재: {buyrate}% {sellrate}%)</p>
                                                     :
                                                     <p>결과: 곧 알림이 제공됩니다.</p>
                                                 }
@@ -164,7 +164,7 @@ function History() {
                                                 <p>주기: {ntf.changebyperiod}분 대비</p>
                                                 {
                                                     latestdate <= currentdate && changes !== 0 && changes >= ntf.changebypercent ?
-                                                    <p>결과: <span className="changes">{parseInt(changes)}% 증가</span> (이전: {ntf["buyrate"]}% {ntf["sellrate"]}% 현재: {buyrate}% {sellrate}%)</p>
+                                                    <p>결과: <span className="changes">{parseInt(changes)}% {changes > 0 ? '증가' : '감소'}</span> (이전: {ntf["buyrate"]}% {ntf["sellrate"]}% 현재: {buyrate}% {sellrate}%)</p>
                                                     :
                                                     <p>결과: 곧 알림이 제공됩니다.</p>
                                                 }
