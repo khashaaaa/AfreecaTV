@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import Axios from 'axios'
 import { LineChart, CartesianGrid, XAxis, YAxis, Tooltip, Line, AreaChart, Area, ResponsiveContainer } from 'recharts'
+import moment from 'moment'
 
 // Single stock chart modal
 const Product = ({ setProd, graphdata }) => {
 
     const [stock, setStock] = useState('')
 
-    useState(() => {
+    useEffect(() => {
         const PullGraphData = (name) => {
 
             Axios.get(`http://210.114.19.151:8080/${name}`)
@@ -67,37 +68,20 @@ const Product = ({ setProd, graphdata }) => {
 
     const toPercent = (decimal, fixed = 0) => `${(decimal * 100)}%`;
 
-    const DigitFormatArea = ( name, value ) => {
-        switch(graphdata['name']) {
-            case 'Corn':
-                return [name]
-            case 'Euro FX':
-                return [name]
-            case 'Natural Gas':
-                return [name]
-            case 'Crude Oil (WTI)':
-                return [name]
-            case 'Gold':
-                return [name]
-            case 'E-mini NASDAQ 100':
-                return [name]
-        }
-    }
-
     const DigitFormatLine = ( name, value ) => {
         switch(graphdata['name']) {
             case 'Corn':
-                return [(Math.round(name * 100) / 100).toFixed(1)]
+                return (Math.round(name * 100) / 100).toFixed(1)
             case 'Euro FX':
-                return [(Math.round(name * 100) / 100).toFixed(5)]
+                return (Math.round(name * 100) / 100).toFixed(5)
             case 'Natural Gas':
-                return [(Math.round(name * 100) / 100).toFixed(3)]
+                return (Math.round(name * 100) / 100).toFixed(3)
             case 'Crude Oil (WTI)':
-                return [(Math.round(name * 100) / 100).toFixed(2)]
+                return (Math.round(name * 100) / 100).toFixed(2)
             case 'Gold':
-                return [(Math.round(name * 100) / 100).toFixed(1)]
+                return (Math.round(name * 100) / 100).toFixed(1)
             case 'E-mini NASDAQ 100':
-                return [(Math.round(name * 100) / 100).toFixed(2)]
+                return (Math.round(name * 100) / 100).toFixed(2)
         }
     }
 
@@ -121,7 +105,7 @@ const Product = ({ setProd, graphdata }) => {
                                     <CartesianGrid strokeDasharray="3 3" vertical={false} />
                                     <XAxis style={{ fontSize: 10, fontWeight: 'bold' }} dataKey="date" />
                                     <YAxis style={{ fontSize: 10, fontWeight: 'bold' }} tickFormatter={toPercent} domain={[ 'dataMin', 'dataMax' ]} />
-                                    <Tooltip contentStyle={{ fontSize: 12, fontWeight: 'bold' }} formatter={(name, value) => {return DigitFormatArea(name, value)}} />
+                                    <Tooltip contentStyle={{ fontSize: 12, fontWeight: 'bold' }} formatter={(name, value) => { return [name, value] }} />
                                     <Area type="monotone" dataKey="buyrate" stackId="1" stroke="red" fill="red" activeDot={{ r: 3 }} />
                                     <Area type="monotone" dataKey="sellrate" stackId="1" stroke="blue" fill="blue" activeDot={{ r: 3 }} />
                                 </AreaChart>
